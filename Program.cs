@@ -1,54 +1,80 @@
 ﻿using System;
+using DrinkRecipes;
+
 
 namespace DrinkRecipes
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine(DateTime.Now.ToString());
-
-            Console.WriteLine("It's 5'oclock here!");
-
-            Console.WriteLine("Login in to access your drink recipes.");
-
-            Console.WriteLine("Please enter your user name: ");
             
-            string userName = Console.ReadLine();
+           
+                Console.WriteLine(DateTime.Now.ToString());
 
-            Console.WriteLine("Please enter your password: ");  //this information will be saved using an SQL
+                Console.WriteLine("It's 5'oclock here!");
 
-            string password = Console.ReadLine();
+                Console.WriteLine("Login in to access your drink recipes.");
 
-            Console.WriteLine("Welcome back " + userName + "!");
+                Console.WriteLine("Please enter your user name: ");
 
-            Console.WriteLine("Would you like to try the recipe of the day? Type yes or no: ");
+                string userName = Console.ReadLine();
 
-            bool yes = true;
-            bool no = true;
+                Console.WriteLine("Please enter your password: ");
 
-            if (yes == true)
+                string password = Console.ReadLine();
+
+                Console.WriteLine("Welcome back " + userName + "!");
+
+            
+
+                Console.WriteLine("Would you like to try the recipe of the day? Type yes or no: ");
+
+            bool endapp = false;
+            while (!endapp)
+            {
+                string answer = Console.ReadLine();
+
+                if (answer.ToLower() == "yes")
                 {
-                Console.ReadLine();
-                
-                Console.WriteLine("Today's Recipe is " + "-"); //there will be a random recipe pulled from the api
-            }
+                    //to do write method to call random recipe from the api
 
-            else if (no == true)
-            {
-                Console.ReadLine();
+                    Console.WriteLine("Today's Recipe is " + "-");
+                }
+            
+                else if (answer.ToLower() == "no")
+                {
 
-                Console.WriteLine("You can search for a recipe using the name of a recipe or by ingredients ");
-            }
+                    //name or ingredient 
 
-            else
-            {
-                Console.WriteLine("Please enter yes or no to continue: ");
-            }
 
+                    
+                    Console.WriteLine("You can search by ");
+                    Console.WriteLine("1. Ingredients");
+                    Console.WriteLine("2. Recipe Name");
+
+                    string searchBy = Console.ReadLine();
+
+                    if (searchBy == "1")
+                    {
+                        SearchAPI.SearchByIngredient();
+                    }
+                    else if (searchBy == "2")
+                    {
+                        //SearchByName();
+                    }
+
+                    //finish else statement
+                }
+
+                else
+                {
+                    Console.WriteLine("Please enter yes or no to continue: ");
+                }
             
 
-              
+
+            }  
         }
     }
 }
