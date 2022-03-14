@@ -53,6 +53,26 @@ namespace DrinkRecipes
             }
             return null;
         }
+        public static async Task<Random> RandomRecipeOfTheDay()
+        {
+            Console.WriteLine("Type in a Drink Name: ");
+            string drinkName = Console.ReadLine();
+
+            //www.thecocktaildb.com / api / json / v1 / 1 / search.php ? s = margarita
+
+            HttpResponseMessage response = await client.GetAsync($@"api/json/v1/1/search.php?s={drinkName}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string result = response.Content.ReadAsStringAsync().Result;
+
+                Random random = JsonConvert.DeserializeObject<Random>(result);
+
+                return random;
+            }
+            return null;
+        }
     }
+
 
 }

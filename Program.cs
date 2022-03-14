@@ -20,15 +20,36 @@ namespace DrinkRecipes
 
                 string userName = Console.ReadLine();
 
-                Console.WriteLine("Please enter your password: ");
+                Console.WriteLine("Please enter your birthday: ");
 
-                string password = Console.ReadLine();
+                // i want the console to read the birth date entered and then calculate if the person is 21.
+
+            //if the person is 21 than console will say they can proceed
+            //else console will say you are not 21 please exit the app.
+
+           /* public static int CalculateAge(DateTime dateOfBirth)
+            {
+                int age = 0;
+                age = DateTime.Now.Year - dateOfBirth.Year;
+                if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                    age = age - 1;
+
+                return age;
+            }*/
+
+
+
+
+            string password = Console.ReadLine();
 
                 Console.WriteLine("Welcome back " + userName + "!");
 
             
 
                 Console.WriteLine("Would you like to try the recipe of the day? Type yes or no: ");
+
+            //i want the console to show a recipe 
+            //currently when yes is entered the app asks for a drink name to be entered 
 
             bool endapp = false;
             while (!endapp)   //window will stay open until it is closed
@@ -38,6 +59,12 @@ namespace DrinkRecipes
                 if (answer.ToLower() == "yes")
                 {
                     //to do write method to call random recipe from the api
+
+                    if (answer == "yes")
+                    {
+                        _ = SearchAPI.RandomRecipeOfTheDay();  //random recipe of the day
+                    }
+
 
                     Console.WriteLine("Today's Recipe is " + "-");
                 }
@@ -76,10 +103,15 @@ namespace DrinkRecipes
                     //finish else statement
                     Console.WriteLine("Please enter yes or no to continue: ");
                 }
+
+               
+
+            }
             
 
-
-            }  
         }
+        
     }
+    
+    
 }
