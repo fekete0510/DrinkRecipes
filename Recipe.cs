@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DrinkRecipes
 {
-    public class Ingredients
+    public class Ingredients  //search api using ingredients
     {
         
             public string idIngredient { get; set; }
@@ -17,9 +17,16 @@ namespace DrinkRecipes
             public object strABV { get; set; }
         }
 
-        public class Recipe
+        public class Recipe 
+
+        //get recipe when searching by ingredients 
+
         {
             public List<Ingredients> ingredients { get; set; }
         }
-    }
+
+
+  
+
+}
 

@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using DrinkRecipes;
 
 namespace DrinkRecipes
 {
     public static class SearchAPI
     {
-
         public static string apiUrl = "http://www.thecocktaildb.com/";
         public static HttpClient client = new HttpClient()
         {
@@ -39,6 +34,25 @@ namespace DrinkRecipes
             return null;
         }
 
+        public static async Task<Root> SearchByDrinkName()
+        {
+            Console.WriteLine("Type in a Drink Name: ");
+            string drinkName = Console.ReadLine();
+
+            //www.thecocktaildb.com / api / json / v1 / 1 / search.php ? s = margarita
+
+            HttpResponseMessage response = await client.GetAsync($@"api/json/v1/1/search.php?s={drinkName}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string result = response.Content.ReadAsStringAsync().Result;
+
+                Root root = JsonConvert.DeserializeObject<Root>(result);
+
+                return root;
+            }
+            return null;
+        }
     }
 
 }

@@ -31,7 +31,7 @@ namespace DrinkRecipes
                 Console.WriteLine("Would you like to try the recipe of the day? Type yes or no: ");
 
             bool endapp = false;
-            while (!endapp)
+            while (!endapp)   //window will stay open until it is closed
             {
                 string answer = Console.ReadLine();
 
@@ -45,30 +45,35 @@ namespace DrinkRecipes
                 else if (answer.ToLower() == "no")
                 {
 
-                    //name or ingredient 
+                   
 
 
                     
-                    Console.WriteLine("You can search by ");
+                    Console.WriteLine("You can search by ");   // search by recipe name or ingredient 
                     Console.WriteLine("1. Ingredients");
-                    Console.WriteLine("2. Recipe Name");
+                    Console.WriteLine("2. Drink Name");
 
                     string searchBy = Console.ReadLine();
 
                     if (searchBy == "1")
                     {
-                        SearchAPI.SearchByIngredient();
+                        _ = SearchAPI.SearchByIngredient();     //search by ingredient example: bourbon
+                        
                     }
                     else if (searchBy == "2")
                     {
-                        //SearchByName();
+                        _ = SearchAPI.SearchByDrinkName();  //search by drink name
+
+                        
                     }
 
-                    //finish else statement
+                    
                 }
 
                 else
                 {
+
+                    //finish else statement
                     Console.WriteLine("Please enter yes or no to continue: ");
                 }
             
