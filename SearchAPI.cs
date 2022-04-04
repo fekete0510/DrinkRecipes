@@ -14,7 +14,7 @@ namespace DrinkRecipes
         };
 
 
-        public static async Task<Recipe> SearchByIngredient()
+        public static async Task<IngredientName> SearchByIngredient()
         {
             Console.WriteLine("Type in an Ingredient: ");
             string ingredientName = Console.ReadLine();
@@ -27,14 +27,14 @@ namespace DrinkRecipes
             {
                 string result = response.Content.ReadAsStringAsync().Result;
 
-                Recipe recipe = JsonConvert.DeserializeObject<Recipe>(result);
+                IngredientName ingredientname = JsonConvert.DeserializeObject<IngredientName>(result);
 
-                return recipe;
+                return ingredientname;
             }
             return null;
         }
 
-        public static async Task<Root> SearchByDrinkName()
+        public static async Task<DrinkName> SearchByDrinkName()
         {
             Console.WriteLine("Type in a Drink Name: ");
             string drinkName = Console.ReadLine();
@@ -47,9 +47,9 @@ namespace DrinkRecipes
             {
                 string result = response.Content.ReadAsStringAsync().Result;
 
-                Root root = JsonConvert.DeserializeObject<Root>(result);
+                DrinkName drink = JsonConvert.DeserializeObject<DrinkName>(result);
 
-                return root;
+                return drink;
             }
             return null;
         }

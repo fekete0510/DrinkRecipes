@@ -17,7 +17,7 @@ namespace DrinkRecipes
             public object strABV { get; set; }
         }
 
-        public class Recipe 
+        public class IngredientName 
 
         //get recipe when searching by ingredients 
 

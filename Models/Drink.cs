@@ -5,18 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DrinkRecipes
-{
-    
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-        public class RandomRecipe
+{ 
+       public class Drink //search the api using drink name
     {
             public string idDrink { get; set; }
             public string strDrink { get; set; }
             public object strDrinkAlternate { get; set; }
-            public object strTags { get; set; }
+            public string strTags { get; set; }
             public object strVideo { get; set; }
             public string strCategory { get; set; }
-            public object strIBA { get; set; }
+            public string strIBA { get; set; }
             public string strAlcoholic { get; set; }
             public string strGlass { get; set; }
             public string strInstructions { get; set; }
@@ -35,9 +33,9 @@ namespace DrinkRecipes
             public string strIngredient2 { get; set; }
             public string strIngredient3 { get; set; }
             public string strIngredient4 { get; set; }
-            public object strIngredient5 { get; set; }
-            public object strIngredient6 { get; set; }
-            public object strIngredient7 { get; set; }
+            public string strIngredient5 { get; set; }
+            public string strIngredient6 { get; set; }
+            public string strIngredient7 { get; set; }
             public object strIngredient8 { get; set; }
             public object strIngredient9 { get; set; }
             public object strIngredient10 { get; set; }
@@ -50,9 +48,9 @@ namespace DrinkRecipes
             public string strMeasure2 { get; set; }
             public string strMeasure3 { get; set; }
             public string strMeasure4 { get; set; }
-            public object strMeasure5 { get; set; }
-            public object strMeasure6 { get; set; }
-            public object strMeasure7 { get; set; }
+            public string strMeasure5 { get; set; }
+            public string strMeasure6 { get; set; }
+            public string strMeasure7 { get; set; }
             public object strMeasure8 { get; set; }
             public object strMeasure9 { get; set; }
             public object strMeasure10 { get; set; }
@@ -61,15 +59,15 @@ namespace DrinkRecipes
             public object strMeasure13 { get; set; }
             public object strMeasure14 { get; set; }
             public object strMeasure15 { get; set; }
-            public object strImageSource { get; set; }
-            public object strImageAttribution { get; set; }
+            public string strImageSource { get; set; }
+            public string strImageAttribution { get; set; }
             public string strCreativeCommonsConfirmed { get; set; }
             public string dateModified { get; set; }
         }
 
-        public class Random
+        public class DrinkName
         {
-            public List<RandomRecipe> randomrecipe { get; set; }
+            public List<Drink> drinks { get; set; }
         }
 
 

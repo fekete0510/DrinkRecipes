@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DrinkRecipes;
 
 
@@ -6,7 +7,8 @@ namespace DrinkRecipes
 {
     public class Program
     {
-        public static void Main(string[] args)
+        
+        public static async Task Main(string[] args)
         {
             
            
@@ -22,27 +24,32 @@ namespace DrinkRecipes
 
                 Console.WriteLine("Please enter your birthday: ");
 
-                // i want the console to read the birth date entered and then calculate if the person is 21.
+                string birthdate = Console.ReadLine();
+                
+                DateTime datetime = DateTime.Parse(birthdate); //convert lookup
+
+            if (CalculateYears(datetime) > 21)
+                Console.WriteLine("You are over 21 you may continue!");
+            else
+                Console.WriteLine("You are underage please exit this drink finder.");
+
+
+
+
+
+            // i want the console to read the birth date entered and then calculate if the person is 21.
 
             //if the person is 21 than console will say they can proceed
             //else console will say you are not 21 please exit the app.
 
-           /* public static int CalculateAge(DateTime dateOfBirth)
-            {
-                int age = 0;
-                age = DateTime.Now.Year - dateOfBirth.Year;
-                if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
-                    age = age - 1;
 
-                return age;
-            }*/
 
 
 
 
             string password = Console.ReadLine();
 
-                Console.WriteLine("Welcome back " + userName + "!");
+                Console.WriteLine("Welcome " + userName + "!");
 
             
 
@@ -76,21 +83,33 @@ namespace DrinkRecipes
 
 
                     
-                    Console.WriteLine("You can search by ");   // search by recipe name or ingredient 
-                    Console.WriteLine("1. Ingredients");
-                    Console.WriteLine("2. Drink Name");
+                    Console.WriteLine("You can learn about different types of liquors or find a drink recipe. Choose Option 1 0r 2: ");   // search by recipe name or ingredient 
+                    Console.WriteLine("1. Info on liquor by");
+                    Console.WriteLine("2. Recipe by Drink Name");
 
                     string searchBy = Console.ReadLine();
 
                     if (searchBy == "1")
                     {
-                        _ = SearchAPI.SearchByIngredient();     //search by ingredient example: bourbon
+                        IngredientName ingredientName = await SearchAPI.SearchByIngredient();     //search by ingredient example: bourbon
+                        Console.WriteLine(ingredientName.ingredients[0].strDescription);
                         
                     }
                     else if (searchBy == "2")
                     {
-                        _ = SearchAPI.SearchByDrinkName();  //search by drink name
-
+                       DrinkName drinkName = await  SearchAPI.SearchByDrinkName();  //search by drink name
+                        Console.WriteLine(drinkName.drinks[0].strDrink);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient1);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient2);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient3);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient4);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient5);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient6);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient7);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient8);
+                        Console.WriteLine(drinkName.drinks[0].strIngredient9);
+                        Console.WriteLine(drinkName.drinks[0].strInstructions);
+                        
                         
                     }
 
@@ -101,7 +120,7 @@ namespace DrinkRecipes
                 {
 
                     //finish else statement
-                    Console.WriteLine("Please enter yes or no to continue: ");
+                    Console.WriteLine("Would you like to try a recipe of the day? Please enter yes or no to continue: ");
                 }
 
                
@@ -110,8 +129,24 @@ namespace DrinkRecipes
             
 
         }
+        public static int CalculateYears(DateTime birthDate)
+        {
+            DateTime now = DateTime.Today;
+
+            int age = now.Year - birthDate.Year;  //starts by calculating year 
+
+            if (now.Month < birthDate.Month || (now.Month == birthDate.Month && now.Day < birthDate.Day)) //then checks the birth month against current month then checks the birth date against current date 
+                age--;
+
+            return age;
+        }
+
+
+
+
         
     }
     
-    
+
+
 }
