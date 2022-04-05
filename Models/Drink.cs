@@ -26,7 +26,7 @@ namespace DrinkRecipes
             //[JsonProperty("strInstructionsZH-HANS")]
             public object StrInstructionsZHHANS { get; set; }
 
-            //[JsonProperty("strInstructionsZH-HANT")]
+           
             public object StrInstructionsZHHANT { get; set; }
             public string strDrinkThumb { get; set; }
             public string strIngredient1 { get; set; }
