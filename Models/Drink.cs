@@ -18,16 +18,16 @@ namespace DrinkRecipes
             public string strAlcoholic { get; set; }
             public string strGlass { get; set; }
             public string strInstructions { get; set; }
-            public object strInstructionsES { get; set; }
+            public string strInstructionsES { get; set; }
             public string strInstructionsDE { get; set; }
-            public object strInstructionsFR { get; set; }
+            public string strInstructionsFR { get; set; }
             public string strInstructionsIT { get; set; }
 
             //[JsonProperty("strInstructionsZH-HANS")]
-            public object StrInstructionsZHHANS { get; set; }
+            public string StrInstructionsZHHANS { get; set; }
 
            
-            public object StrInstructionsZHHANT { get; set; }
+            public string StrInstructionsZHHANT { get; set; }
             public string strDrinkThumb { get; set; }
             public string strIngredient1 { get; set; }
             public string strIngredient2 { get; set; }
@@ -36,14 +36,14 @@ namespace DrinkRecipes
             public string strIngredient5 { get; set; }
             public string strIngredient6 { get; set; }
             public string strIngredient7 { get; set; }
-            public object strIngredient8 { get; set; }
-            public object strIngredient9 { get; set; }
-            public object strIngredient10 { get; set; }
-            public object strIngredient11 { get; set; }
-            public object strIngredient12 { get; set; }
-            public object strIngredient13 { get; set; }
-            public object strIngredient14 { get; set; }
-            public object strIngredient15 { get; set; }
+            public string strIngredient8 { get; set; }
+            public string strIngredient9 { get; set; }
+            public string strIngredient10 { get; set; }
+            public string strIngredient11 { get; set; }
+            public string strIngredient12 { get; set; }
+            public string strIngredient13 { get; set; }
+            public string strIngredient14 { get; set; }
+            public string strIngredient15 { get; set; }
             public string strMeasure1 { get; set; }
             public string strMeasure2 { get; set; }
             public string strMeasure3 { get; set; }
@@ -51,14 +51,14 @@ namespace DrinkRecipes
             public string strMeasure5 { get; set; }
             public string strMeasure6 { get; set; }
             public string strMeasure7 { get; set; }
-            public object strMeasure8 { get; set; }
-            public object strMeasure9 { get; set; }
-            public object strMeasure10 { get; set; }
-            public object strMeasure11 { get; set; }
-            public object strMeasure12 { get; set; }
-            public object strMeasure13 { get; set; }
-            public object strMeasure14 { get; set; }
-            public object strMeasure15 { get; set; }
+            public string strMeasure8 { get; set; }
+            public string strMeasure9 { get; set; }
+            public string strMeasure10 { get; set; }
+            public string strMeasure11 { get; set; }
+            public string strMeasure12 { get; set; }
+            public string strMeasure13 { get; set; }
+            public string strMeasure14 { get; set; }
+            public string strMeasure15 { get; set; }
             public string strImageSource { get; set; }
             public string strImageAttribution { get; set; }
             public string strCreativeCommonsConfirmed { get; set; }

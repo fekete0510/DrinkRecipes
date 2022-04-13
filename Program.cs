@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DrinkRecipes;
+using System.IO;
+
 
 
 namespace DrinkRecipes
@@ -18,40 +20,43 @@ namespace DrinkRecipes
 
             Console.WriteLine("Login in to access your drink recipes.");
 
-            Console.WriteLine("Please enter your user name: ");
+            Console.WriteLine("Please enter your name: ");
 
             string userName = Console.ReadLine();
 
-            Console.WriteLine("Please enter your birthday: ");
 
-            string birthdate = Console.ReadLine();
+            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, userName)))
+            {
+                Console.WriteLine("Welcome back " + userName);
 
-            DateTime datetime = DateTime.Parse(birthdate); //convert lookup
+            }
 
-            if (CalculateYears(datetime) > 21)
-                Console.WriteLine("You are over 21 you may continue!");
             else
-                Console.WriteLine("You are underage please exit this drink finder.");
+            {
+                Console.WriteLine("Please enter your birthday: ");
+
+                string birthdate = Console.ReadLine();
+
+                DateTime datetime = DateTime.Parse(birthdate); //convert lookup
 
 
+                if (CalculateYears(datetime) > 21)
+                {
+                    SaveName(userName);
+                    Console.WriteLine("You are over 21 you may continue!");
+                }
+                else
+                {
+                    Console.WriteLine("You are underage please exit this drink finder.");
+                    Environment.Exit(0);
+                }
 
-
+            }
 
             // i want the console to read the birth date entered and then calculate if the person is 21.
 
             //if the person is 21 than console will say they can proceed
             //else console will say you are not 21 please exit the app.
-
-
-
-
-
-
-            string password = Console.ReadLine();
-
-            Console.WriteLine("Welcome " + userName + "!");
-
-
 
             Console.WriteLine("Would you like to try the recipe of the day? Type yes or no: ");
 
@@ -140,25 +145,35 @@ namespace DrinkRecipes
         public static void ShowRecipeInstructions(DrinkName drinkName)
         {
             Console.WriteLine(drinkName.drinks[0].strDrink);
-            Console.WriteLine(drinkName.drinks[0].strIngredient1  +  drinkName.drinks[0].strMeasure1);
+            if (drinkName.drinks[0].strIngredient1 != null)
+            {
+                Console.WriteLine(drinkName.drinks[0].strIngredient1 + drinkName.drinks[0].strMeasure1);
+            }
+
+
+
+
             Console.WriteLine(drinkName.drinks[0].strIngredient2 + drinkName.drinks[0].strMeasure2);
             Console.WriteLine(drinkName.drinks[0].strIngredient3 + drinkName.drinks[0].strMeasure3);
             Console.WriteLine(drinkName.drinks[0].strIngredient4 + drinkName.drinks[0].strMeasure4);
             Console.WriteLine(drinkName.drinks[0].strIngredient5 + drinkName.drinks[0].strMeasure5);
             Console.WriteLine(drinkName.drinks[0].strIngredient6 + drinkName.drinks[0].strMeasure6);
             Console.WriteLine(drinkName.drinks[0].strIngredient7 + drinkName.drinks[0].strMeasure7);
-            //Console.WriteLine(drinkName.drinks[0].strIngredient8 + drinkName.drinks[0].strMeasure8);
-            //Console.WriteLine(drinkName.drinks[0].strIngredient9 + drinkName.drinks[0].strMeasure9);
-           
+            Console.WriteLine(drinkName.drinks[0].strIngredient8 + drinkName.drinks[0].strMeasure8);
+            Console.WriteLine(drinkName.drinks[0].strIngredient9 + drinkName.drinks[0].strMeasure9); //
+
             Console.WriteLine(drinkName.drinks[0].strInstructions);
 
         }
 
+        public static void SaveName(string fileName)
+        {
+            File.WriteAllText(fileName, "");
 
 
 
 
-
+        }
     }
 }
 
