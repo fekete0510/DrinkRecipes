@@ -13,21 +13,25 @@ namespace DrinkRecipes
         public static async Task Main(string[] args)
         {
 
-
+            Console.WriteLine();
             Console.WriteLine(DateTime.Now.ToString());
+            Console.WriteLine("***********************");
 
             Console.WriteLine("It's 5'oclock here!");
+            Console.WriteLine("***********************");
 
-            Console.WriteLine("Login in to access your drink recipes.");
-
+            Console.WriteLine("Let's find some drinks!");
+            Console.WriteLine();
             Console.WriteLine("Please enter your name: ");
 
             string userName = Console.ReadLine();
 
 
-            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, userName)))
+            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, userName))) //if name has been entered with birth date over 21
+                                                                                            //in the console before it has been saved and person will not have to
+                                                                                            //enter birth date in again. 
             {
-                Console.WriteLine("Welcome back " + userName);
+                Console.WriteLine("Welcome back " + userName); 
 
             }
 
@@ -37,31 +41,30 @@ namespace DrinkRecipes
 
                 string birthdate = Console.ReadLine();
 
-                DateTime datetime = DateTime.Parse(birthdate); //convert lookup
+                DateTime datetime = DateTime.Parse(birthdate); 
 
 
                 if (CalculateYears(datetime) > 21)
                 {
-                    SaveName(userName);
+                    SaveName(userName); //name entered is saved if birth date is over 21 
                     Console.WriteLine("You are over 21 you may continue!");
                 }
                 else
                 {
                     Console.WriteLine("You are underage please exit this drink finder.");
-                    Environment.Exit(0);
+                    Environment.Exit(0);  //Console will close if birth date entered is less than 21 years old
                 }
 
             }
 
-            // i want the console to read the birth date entered and then calculate if the person is 21.
+            
 
-            //if the person is 21 than console will say they can proceed
-            //else console will say you are not 21 please exit the app.
+            
 
             Console.WriteLine("Would you like to try the recipe of the day? Type yes or no: ");
 
-            //i want the console to show a recipe 
-            //currently when yes is entered the app asks for a drink name to be entered 
+           
+            
 
             bool endapp = false;
             while (!endapp)   //window will stay open until it is closed
@@ -70,17 +73,19 @@ namespace DrinkRecipes
 
                 if (answer.ToLower() == "yes")
                 {
-                    //to do write method to call random recipe from the api
+                    
 
                     if (answer == "yes")
                     {
                         DrinkName drinkName = await SearchAPI.RandomRecipeOfTheDay();  //random recipe of the day
 
+                        Console.WriteLine();
+
                         ShowRecipeInstructions(drinkName);
 
-                        //write if statement to show measurements if recipe has a blank spot  
+                        
                     }
-                    // make it look the way i want to 
+                    
                 }
 
                 else if (answer.ToLower() == "no")
@@ -90,7 +95,7 @@ namespace DrinkRecipes
 
 
 
-                    Console.WriteLine("You can learn about different types of liquors or find a drink recipe. Choose Option 1 or 2: ");   // search by recipe name or ingredient 
+                    Console.WriteLine("You can learn about different types of liquors or find a specific drink recipe. Choose Option 1 or 2: ");   // search by recipe name or ingredient 
                     Console.WriteLine("1. Search by Liquor name: ");
                     Console.WriteLine("2. Recipe by Drink Name");
 
@@ -99,12 +104,17 @@ namespace DrinkRecipes
                     if (searchBy == "1")
                     {
                         IngredientName ingredientName = await SearchAPI.SearchByIngredient();     //search by ingredient example: bourbon
+
+                        Console.WriteLine();
+
                         Console.WriteLine(ingredientName.ingredients[0].strDescription);
 
                     }
                     else if (searchBy == "2")
                     {
-                        DrinkName drinkName = await SearchAPI.SearchByDrinkName();  //search by drink name
+                        DrinkName drinkName = await SearchAPI.SearchByDrinkName();  //search by specific drink name example: margarita
+
+                        Console.WriteLine();
 
                         ShowRecipeInstructions(drinkName);
 
@@ -119,7 +129,7 @@ namespace DrinkRecipes
                 else
                 {
 
-                    //finish else statement
+                   
                     Console.WriteLine("Would you like to try a recipe of the day? Please enter yes or no to continue: ");
                 }
 
@@ -145,23 +155,48 @@ namespace DrinkRecipes
         public static void ShowRecipeInstructions(DrinkName drinkName)
         {
             Console.WriteLine(drinkName.drinks[0].strDrink);
+
+            Console.WriteLine();
+
             if (drinkName.drinks[0].strIngredient1 != null)
             {
-                Console.WriteLine(drinkName.drinks[0].strIngredient1 + drinkName.drinks[0].strMeasure1);
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient1 + " -- " + drinkName.drinks[0].strMeasure1);
             }
 
+            if (drinkName.drinks[0].strIngredient2 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient2 + " -- " + drinkName.drinks[0].strMeasure2);
+            }
+            if (drinkName.drinks[0].strIngredient3 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient3 + " -- " + drinkName.drinks[0].strMeasure3);
+            }
+            if (drinkName.drinks[0].strIngredient4 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient4 + " -- " + drinkName.drinks[0].strMeasure4);
+            }
+            if (drinkName.drinks[0].strIngredient5 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient5 + " -- " + drinkName.drinks[0].strMeasure5);
+            }
+            if (drinkName.drinks[0].strIngredient6 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient6 + " -- " + drinkName.drinks[0].strMeasure6);
+            }
+            if (drinkName.drinks[0].strIngredient7 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient7 + " -- " + drinkName.drinks[0].strMeasure7);
+            }
+            if (drinkName.drinks[0].strIngredient8 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient8 + " -- " + drinkName.drinks[0].strMeasure8);
+            }
+            if (drinkName.drinks[0].strIngredient9 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient9 + " -- " + drinkName.drinks[0].strMeasure9);
+            }
 
-
-
-            Console.WriteLine(drinkName.drinks[0].strIngredient2 + drinkName.drinks[0].strMeasure2);
-            Console.WriteLine(drinkName.drinks[0].strIngredient3 + drinkName.drinks[0].strMeasure3);
-            Console.WriteLine(drinkName.drinks[0].strIngredient4 + drinkName.drinks[0].strMeasure4);
-            Console.WriteLine(drinkName.drinks[0].strIngredient5 + drinkName.drinks[0].strMeasure5);
-            Console.WriteLine(drinkName.drinks[0].strIngredient6 + drinkName.drinks[0].strMeasure6);
-            Console.WriteLine(drinkName.drinks[0].strIngredient7 + drinkName.drinks[0].strMeasure7);
-            Console.WriteLine(drinkName.drinks[0].strIngredient8 + drinkName.drinks[0].strMeasure8);
-            Console.WriteLine(drinkName.drinks[0].strIngredient9 + drinkName.drinks[0].strMeasure9); //
-
+            Console.WriteLine();
             Console.WriteLine(drinkName.drinks[0].strInstructions);
 
         }
