@@ -7,28 +7,10 @@ using System.Threading.Tasks;
 namespace DrinkRecipes
 { 
        public class Drink //search the api using drink name
-    {
-            public string idDrink { get; set; }
+    {          
             public string strDrink { get; set; }
-            public object strDrinkAlternate { get; set; }
-            public string strTags { get; set; }
-            public object strVideo { get; set; }
-            public string strCategory { get; set; }
-            public string strIBA { get; set; }
-            public string strAlcoholic { get; set; }
             public string strGlass { get; set; }
             public string strInstructions { get; set; }
-            public string strInstructionsES { get; set; }
-            public string strInstructionsDE { get; set; }
-            public string strInstructionsFR { get; set; }
-            public string strInstructionsIT { get; set; }
-
-            //[JsonProperty("strInstructionsZH-HANS")]
-            public string StrInstructionsZHHANS { get; set; }
-
-           
-            public string StrInstructionsZHHANT { get; set; }
-            public string strDrinkThumb { get; set; }
             public string strIngredient1 { get; set; }
             public string strIngredient2 { get; set; }
             public string strIngredient3 { get; set; }
@@ -59,10 +41,7 @@ namespace DrinkRecipes
             public string strMeasure13 { get; set; }
             public string strMeasure14 { get; set; }
             public string strMeasure15 { get; set; }
-            public string strImageSource { get; set; }
-            public string strImageAttribution { get; set; }
-            public string strCreativeCommonsConfirmed { get; set; }
-            public string dateModified { get; set; }
+
         }
 
         public class DrinkName

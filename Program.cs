@@ -166,6 +166,10 @@ namespace DrinkRecipes
         {
             Console.WriteLine(drinkName.drinks[0].strDrink);
 
+            Console.WriteLine();              
+            
+            Console.WriteLine(drinkName.drinks[0].strGlass);
+
             Console.WriteLine();
 
             if (drinkName.drinks[0].strIngredient1 != null)
@@ -205,28 +209,46 @@ namespace DrinkRecipes
             {
                 Console.WriteLine("* " + drinkName.drinks[0].strIngredient9 + " -- " + drinkName.drinks[0].strMeasure9);
             }
+            if (drinkName.drinks[0].strIngredient10 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient10 + " -- " + drinkName.drinks[0].strMeasure10);
+            }
+            if (drinkName.drinks[0].strIngredient11 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient11 + " -- " + drinkName.drinks[0].strMeasure11);
+            }
+            if (drinkName.drinks[0].strIngredient12 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient12 + " -- " + drinkName.drinks[0].strMeasure12);
+            }
+            if (drinkName.drinks[0].strIngredient13 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient13 + " -- " + drinkName.drinks[0].strMeasure13);
+            }
+            if (drinkName.drinks[0].strIngredient14 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient14 + " -- " + drinkName.drinks[0].strMeasure14);
+            }
+            if (drinkName.drinks[0].strIngredient15 != null)
+            {
+                Console.WriteLine("* " + drinkName.drinks[0].strIngredient15 + " -- " + drinkName.drinks[0].strMeasure15);
+            }
 
             Console.WriteLine();
             Console.WriteLine(drinkName.drinks[0].strInstructions);
-
+       
         }
 
         public static void SaveName(string fileName)
         {
             File.WriteAllText(fileName, "");
-
-
-
-
         }
+
+        
     }
 }
 
-/* to do list
- * make ingredients and measurements look nicer
- * close app when person is not 21
- * make text file to save name and birth date so users over 21 can enter without re entering birth date
- */
+
 
 
 
