@@ -51,6 +51,11 @@ namespace DrinkRecipes
                 }
                 else
                 {
+                    TimeSpan t = DateTime.Now - DateTime.Parse(birthdate);
+                    string output = string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds",
+                        t.Days, t.Hours, t.Minutes, t.Seconds);
+
+                    Console.WriteLine(userName + " You have this long until you are 21:  " + output);
                     Console.WriteLine("You are underage please exit this drink finder.");
                     Environment.Exit(0);  //Console will close if birth date entered is less than 21 years old
                 }
@@ -95,9 +100,10 @@ namespace DrinkRecipes
 
 
 
-                    Console.WriteLine("You can learn about different types of liquors or find a specific drink recipe. Choose Option 1 or 2: ");   // search by recipe name or ingredient 
+                    Console.WriteLine("You can learn about different types of liquors or find a specific drink recipe. Choose Option 1, 2 or 3: ");   // search by recipe name or ingredient 
                     Console.WriteLine("1. Search by Liquor name: ");
                     Console.WriteLine("2. Recipe by Drink Name");
+                    Console.WriteLine("3. Exit App");
 
                     string searchBy = Console.ReadLine();
 
@@ -121,6 +127,10 @@ namespace DrinkRecipes
 
 
 
+                    }
+                    else if(searchBy == "3")
+                    {
+                        Environment.Exit(0);
                     }
 
 
