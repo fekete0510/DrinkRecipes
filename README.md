@@ -1,10 +1,10 @@
 # DrinkRecipes
 This project is to find Alcoholic Drink Recipes. Opening the console window it will ask you for your name and birth date.
-Since this recipe finder uses alcohol users must be 21 years old. After entering your birth date, the user will either be welcomed
+Since this recipe finder uses alcohol, users must be 21 years old. After entering your birth date, the user will either be welcomed
 by name or it will close if you are not of age. If you are 21 it will allow you to continue, welcome you by name and save
 your name so that when you use the recipe finder in the future it will not ask for you to enter your birthday again.
-The app will ask if you would like a random recipe of the day. If the choice is no, it will then prompt you to either chose
-to learn about individual liquors of your choice or choose a specific recipe by drink name. 
+The app will ask if you would like a random recipe of the day. If the choice is no, it will show a menu for the user to either chose
+to learn about individual liquors of your choice, choose a specific recipe by drink name or exit. 
 
 The features that I chose to use in this project are:
 
@@ -16,7 +16,7 @@ If they chose no they will be brought back the menu where they can search again 
 
 
 There is an API to read data into the app when searched using the different menu options. 
-Found on line 85 for Random recipe 
+Found on line 85 for Random recipes 
 Line 113 search by liquor name to learn about its history and other facts
 Line 122 search by drink recipe name
 A method was used to display the results of the random recipe and the search by drink name Line 161

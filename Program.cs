@@ -46,7 +46,7 @@ namespace DrinkRecipes
 
                 if (CalculateYears(datetime) > 21)
                 {
-                    SaveName(userName); //name entered is saved if birth date is over 21 once 
+                    SaveName(userName); //name entered is saved if birth date is over 21 
                     Console.WriteLine("You are over 21 you may continue!");
                 }
                 else
