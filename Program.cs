@@ -46,12 +46,12 @@ namespace DrinkRecipes
 
                 if (CalculateYears(datetime) > 21)
                 {
-                    SaveName(userName); //name entered is saved if birth date is over 21 
+                    SaveName(userName); //name entered is saved if birth date is over 21 once 
                     Console.WriteLine("You are over 21 you may continue!");
                 }
                 else
                 {
-                    TimeSpan t = DateTime.Now - DateTime.Parse(birthdate);
+                    TimeSpan t = DateTime.Now - DateTime.Parse(birthdate);  //countdown from todays date until user is 21
                     string output = string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds",
                         t.Days, t.Hours, t.Minutes, t.Seconds);
 
@@ -66,7 +66,7 @@ namespace DrinkRecipes
 
             
 
-            Console.WriteLine("Would you like to try the recipe of the day? Type yes or no: ");
+            Console.WriteLine("Would you like to try a random recipe? Type yes or no: ");
 
            
             
@@ -88,6 +88,7 @@ namespace DrinkRecipes
 
                         ShowRecipeInstructions(drinkName);
 
+
                         
                     }
                     
@@ -102,7 +103,7 @@ namespace DrinkRecipes
 
                     Console.WriteLine("You can learn about different types of liquors or find a specific drink recipe. Choose Option 1, 2 or 3: ");   // search by recipe name or ingredient 
                     Console.WriteLine("1. Search by Liquor name: ");
-                    Console.WriteLine("2. Recipe by Drink Name");
+                    Console.WriteLine("2. Recipe by Drink Name: Example Margarita or French 75");
                     Console.WriteLine("3. Exit App");
 
                     string searchBy = Console.ReadLine();
@@ -123,24 +124,19 @@ namespace DrinkRecipes
                         Console.WriteLine();
 
                         ShowRecipeInstructions(drinkName);
-
-
-
-
+                       
                     }
                     else if(searchBy == "3")
                     {
                         Environment.Exit(0);
                     }
 
-
                 }
 
                 else
                 {
-
-                   
-                    Console.WriteLine("Would you like to try a recipe of the day? Please enter yes or no to continue: ");
+                  
+                    Console.WriteLine("Would you like to try a random recipe? Please enter yes or no to continue: ");
                 }
 
 
@@ -164,15 +160,29 @@ namespace DrinkRecipes
 
         public static void ShowRecipeInstructions(DrinkName drinkName)
         {
-            Console.WriteLine(drinkName.drinks[0].strDrink);
 
+
+            /*
+            if (drinkName.drinks[0].strDrink == null)
+            {
+                Console.WriteLine("Drink not found. Please enter another drink.");
+            }
+
+            else              
+            { 
+                Console.WriteLine(drinkName.drinks[0].strDrink); 
+            }
+            */
+
+            Console.WriteLine(drinkName.drinks[0].strDrink);
+            
             Console.WriteLine();              
             
             Console.WriteLine(drinkName.drinks[0].strGlass);
 
             Console.WriteLine();
 
-            if (drinkName.drinks[0].strIngredient1 != null)
+            if (drinkName.drinks[0].strIngredient1 != null) 
             {
                 Console.WriteLine("* " + drinkName.drinks[0].strIngredient1 + " -- " + drinkName.drinks[0].strMeasure1);
             }
@@ -236,7 +246,8 @@ namespace DrinkRecipes
 
             Console.WriteLine();
             Console.WriteLine(drinkName.drinks[0].strInstructions);
-       
+            Console.WriteLine();
+            Console.WriteLine("Please press enter to continue.");
         }
 
         public static void SaveName(string fileName)
@@ -244,6 +255,9 @@ namespace DrinkRecipes
             File.WriteAllText(fileName, "");
         }
 
+
+
+       
         
     }
 }
