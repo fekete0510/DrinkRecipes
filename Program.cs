@@ -2,6 +2,9 @@
 using System.Threading.Tasks;
 using DrinkRecipes;
 using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Linq;
 
 
 
@@ -12,15 +15,15 @@ namespace DrinkRecipes
 
         public static async Task Main(string[] args)
         {
-
+            Console.WriteLine("Welcome to Drink Finder!");
             Console.WriteLine();
-            Console.WriteLine(DateTime.Now.ToString());
-            Console.WriteLine("***********************");
+            Console.WriteLine("Today's Date and time  is: " + DateTime.Now.ToString());
+            Console.WriteLine("***********************************************");
 
-            Console.WriteLine("It's 5'oclock here!");
-            Console.WriteLine("***********************");
+            Console.WriteLine("But it's 5'oclock here!");
+            Console.WriteLine("************************");
 
-            Console.WriteLine("Let's find some drinks!");
+            Console.WriteLine("Let's find some drinks.");
             Console.WriteLine();
             Console.WriteLine("Please enter your name: ");
 
@@ -31,7 +34,7 @@ namespace DrinkRecipes
                                                                                             //in the console before it has been saved and person will not have to
                                                                                             //enter birth date in again. 
             {
-                Console.WriteLine("Welcome back " + userName); 
+                Console.WriteLine("Welcome back " + userName + "!"); 
 
             }
 
@@ -61,9 +64,6 @@ namespace DrinkRecipes
                 }
 
             }
-
-            
-
             
 
             Console.WriteLine("Would you like to try a random recipe? Type yes or no: ");
@@ -102,8 +102,8 @@ namespace DrinkRecipes
 
 
                     Console.WriteLine("You can learn about different types of liquors or find a specific drink recipe. Choose Option 1, 2 or 3: ");   // search by recipe name or ingredient 
-                    Console.WriteLine("1. Search by Liquor name: ");
-                    Console.WriteLine("2. Recipe by Drink Name: Example Margarita or French 75");
+                    Console.WriteLine("1. Search by Liquor name. Example: Bourbon ");
+                    Console.WriteLine("2. Recipe by Drink Name. Example: Margarita or French 75");
                     Console.WriteLine("3. Exit App");
 
                     string searchBy = Console.ReadLine();
@@ -115,6 +115,10 @@ namespace DrinkRecipes
                         Console.WriteLine();
 
                         Console.WriteLine(ingredientName.ingredients[0].strDescription);
+
+                        Console.WriteLine();
+
+                        Console.WriteLine("Please press enter to continue.");
 
                     }
                     else if (searchBy == "2")
@@ -160,20 +164,6 @@ namespace DrinkRecipes
 
         public static void ShowRecipeInstructions(DrinkName drinkName)
         {
-
-
-            /*
-            if (drinkName.drinks[0].strDrink == null)
-            {
-                Console.WriteLine("Drink not found. Please enter another drink.");
-            }
-
-            else              
-            { 
-                Console.WriteLine(drinkName.drinks[0].strDrink); 
-            }
-            */
-
             Console.WriteLine(drinkName.drinks[0].strDrink);
             
             Console.WriteLine();              
@@ -254,11 +244,10 @@ namespace DrinkRecipes
         {
             File.WriteAllText(fileName, "");
         }
+      
 
 
 
-       
-        
     }
 }
 
