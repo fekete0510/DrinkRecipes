@@ -66,7 +66,7 @@ namespace DrinkRecipes
             }
             
 
-            Console.WriteLine("Would you like to try a random recipe? Type yes or no: ");
+            Console.WriteLine("Would you like to try a random recipe? Type yes or no : ");
 
            
             
